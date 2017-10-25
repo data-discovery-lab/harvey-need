@@ -2,17 +2,17 @@
 
 ## Sequential Mining using Pymining
 
-###Import Library
+### Import Library
 
 `from pymining import seqmining`
 
-###Sequence Formatting
+### Sequence Formatting
 
 Pymining iterates over elements inside of an array, therefor in order to find word sequences, the sequence must be an array inside an array. See below for an example:
 
 `seqEx = [['bike','car','door'],['car'],['door','echo','figure']]`
 
-###Using Sequence Mining
+### Using Sequence Mining
 
 `seqminin.g.freq_seq_enum(para1,para2)`
 
@@ -22,7 +22,7 @@ Pymining iterates over elements inside of an array, therefor in order to find wo
 
 **para2:** The minimum number of occurances the element appeares in the sequence. Type -> Integer
 
-###Output Example Using Sequence Above
+### Output Example Using Sequence Above
 
 ```
 freq_seqs = seqmining.freq_seq_enum(seqEx,2)
@@ -31,7 +31,7 @@ freq_seqs = seqmining.freq_seq_enum(seqEx,2)
 >> (('car',), 2)
 ```
 
-###Compile SeqMining.py
+### Compile SeqMining.py
 
 `$python SeqMining.py inputFile.csv 5`
 
