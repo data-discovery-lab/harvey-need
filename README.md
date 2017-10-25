@@ -12,16 +12,6 @@ Pymining iterates over elements inside of an array, therefor in order to find wo
 
 `seqEx = [['bike','car','door'],['car'],['door','echo','figure']]`
 
-### Using Sequence Mining
-
-`seqminin.g.freq_seq_enum(para1,para2)`
-
-**seqmining.freq_seq_enum():** Returns an array of tuples (sequence, frequency count)
-
- **para1:** Sequence example shown above. Type -> Array
-
-**para2:** The minimum number of occurances the element appeares in the sequence. Type -> Integer
-
 ### Output Example Using Sequence Above
 
 ```
@@ -52,6 +42,10 @@ term9 term10 term11 term12 | Date of tweet
 
 **Output of 'input.csv'**
 
+Prints an array of tuples (word list, frequency count):
+1. Word list is a list of words that were common in the sequence
+2. Frequency count is the number of times the word list occured in the entire sequence
+
 ```
 $python SeqMining.py input.csv 5
 
@@ -66,6 +60,7 @@ $python SeqMining.py input.csv 5
 (('friend', 'texa', 'hurricane', 'harvey'), 5)
 (('txwx', 'nw', 'nhc'), 32)
 ```
+
 
 
 
