@@ -7,7 +7,7 @@ Created on Sun Oct 22 21:00:15 2017
 import sys
 from pymining import seqmining
 
-seqTest = seq = [['bike','car','door'],['car'],['door','echo','figure']] #Test Sequence
+seqTest = seq = [['bike','car','door'],['car'],['door','echo','figure'],['bike','car','door'],['car']] #Test Sequence
 
 seq = []
 if(len(sys.argv) == 1):
@@ -26,7 +26,7 @@ else:
     #freq_seq_enum(seq[list],minimal support of set include [int]) -> A set(frequence value, support)
     freq_seqs = seqmining.freq_seq_enum(seq,int(sys.argv[2]))
 
-    sorted(freq_seqs)
+    freq_seqs = sorted(freq_seqs,key=lambda  x: x[1], reverse=True)
 
     for seq in freq_seqs:
         print(seq)
