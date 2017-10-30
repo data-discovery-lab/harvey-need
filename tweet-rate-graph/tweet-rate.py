@@ -40,8 +40,8 @@ else:
             heigth = 900,
             xaxis = dict(
                 showgrid = False,
-                autogrid = True,
                 zeroline=True,
+                showline=True,
                 title = "Date",
                 titlefont = dict(
                         size = 20,
@@ -57,7 +57,7 @@ else:
             yaxis = dict(
                 showgrid = False,
                 zeroline = True,
-                autogrid = True,
+                showline=True,
                 title = "Tweets per Second",
                 titlefont = dict(
                         size = 20,
