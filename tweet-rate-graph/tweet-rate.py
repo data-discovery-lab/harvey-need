@@ -23,7 +23,7 @@ else:
         for line in dataFile:
             line = line.split(" ")
             xData.append(line[0])
-            yData.append(line[1])
+            yData.append(line[2])
                     
     
     trace1 = go.Scatter(
@@ -40,6 +40,7 @@ else:
             heigth = 900,
             xaxis = dict(
                 showgrid = False,
+                autogrid = True,
                 zeroline=True,
                 title = "Date",
                 titlefont = dict(
@@ -50,13 +51,13 @@ else:
                         size = 14,
                         color = "#000"
                 ),
-                tick0=0,
                 dtick=30,
                         
             ),
             yaxis = dict(
                 showgrid = False,
-                zeroline=True,
+                zeroline = True,
+                autogrid = True,
                 title = "Tweets per Second",
                 titlefont = dict(
                         size = 20,
