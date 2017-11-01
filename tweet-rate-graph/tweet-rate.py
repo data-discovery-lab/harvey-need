@@ -11,33 +11,51 @@ import plotly.graph_objs as go
 
 py.sign_in('JStuve', 'mVRUE6CCF94yvNnRxeuu') # Replace the username, and API key with your credentials.
 
-if(len(sys.argv) != 2):
-    print('Please enter file name:\n $python tweet-rate.py data.csv')
+if(len(sys.argv) != 3):
+    print('Please enter file name:\n $python tweet-rate.py data1.csv data2.csv')
 
 else:
     print("Processing Data")
     xData = []
     yData = []
     
+    xxData = []
+    yyData = []
+    
     with open(sys.argv[1], 'r', encoding='utf8', errors='ignore') as dataFile:
         for line in dataFile:
             line = line.split(" ")
             xData.append(line[0])
             yData.append(line[2])
+            
+    with open(sys.argv[2], 'r', encoding='utf8', errors='ignore') as dataFile:
+        for line in dataFile:
+            line = line.split(" ")
+            xxData.append(line[0])
+            yyData.append(line[2])
                     
     
     trace1 = go.Scatter(
         x= xData,
         y= yData,
-        fill='tozeroy'
+        fill='tozeroy',
+        name="Complete Tweets"
+    )
+    
+    trace2 = go.Scatter(
+        x= xxData,
+        y= yyData,
+        fill='tozeroy',
+        name="Need Tweets"
     )
     
     
-    data = [trace1]
+    data = [trace1, trace2]
     
     layout = dict(
             width = 900,
             heigth = 900,
+            showlegend=True,
             xaxis = dict(
                 showgrid = False,
                 zeroline=True,
