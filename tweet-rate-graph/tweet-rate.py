@@ -11,8 +11,12 @@ import plotly.graph_objs as go
 
 py.sign_in('JStuve', 'mVRUE6CCF94yvNnRxeuu') # Replace the username, and API key with your credentials.
 
+print(sys.argv)
+
 if(len(sys.argv) != 3):
     print('Please enter file name:\n $python tweet-rate.py data1.csv data2.csv')
+
+
 
 else:
     print("Processing Data")
@@ -22,18 +26,28 @@ else:
     xxData = []
     yyData = []
     
-    with open(sys.argv[1], 'r', encoding='utf8', errors='ignore') as dataFile:
+    with open(sys.argv[1], 'r') as dataFile:
         for line in dataFile:
             line = line.split(" ")
             xData.append(line[0])
             yData.append(line[2])
             
-    with open(sys.argv[2], 'r', encoding='utf8', errors='ignore') as dataFile:
+    with open(sys.argv[2], 'r') as dataFile:
         for line in dataFile:
             line = line.split(" ")
             xxData.append(line[0])
             yyData.append(line[2])
-                    
+            
+    labels = []
+    
+    for line in xData:
+        split = line.split('_')
+        line = "{}/{}".format(split[0], split[1])   
+        labels.append(line)
+            
+    print(labels)
+    
+    x = len(labels)
     
     trace1 = go.Scatter(
         x= xData,
@@ -55,7 +69,10 @@ else:
     layout = dict(
             width = 900,
             heigth = 900,
-            showlegend=True,
+            legend = dict(
+                x = .75,
+                y = 1                    
+            ),
             xaxis = dict(
                 showgrid = False,
                 zeroline=True,
@@ -69,6 +86,7 @@ else:
                         size = 14,
                         color = "#000"
                 ),
+                ticktext = labels,
                 dtick=30,
                         
             ),
