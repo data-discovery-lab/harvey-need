@@ -2,6 +2,8 @@ from seq2seq import SimpleSeq2Seq, Seq2Seq, AttentionSeq2Seq
 import numpy as np
 from keras.utils.test_utils import keras_test
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 input_length = 5
 input_dim = 3
