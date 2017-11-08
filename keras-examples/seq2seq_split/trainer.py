@@ -98,7 +98,6 @@ model.fit([encoder_input_data, decoder_input_data], decoder_target_data,
           batch_size=batch_size,
           epochs=epochs,
           validation_split=0.2)
-# Save model - Save however, is not access in the interface at all
-model.save('s2s.h5')
-config = model.to_json()
+# Save model 
+model.save('s2s_model.h5')
 
