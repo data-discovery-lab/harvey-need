@@ -112,6 +112,7 @@ def save_model_to_yml(file_name, md):
 
     md.save_weights(file_name + ".model.weight.h5")
 
+    print("Done saving weight", file_name)
 
 save_model_to_yml("s2s.train", model)
 
