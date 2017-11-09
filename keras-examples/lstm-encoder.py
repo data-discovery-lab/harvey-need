@@ -5,7 +5,7 @@ from keras.layers import Input, LSTM, Dense
 import numpy as np
 
 batch_size = 64  # Batch size for training.
-epochs = 10  # Number of epochs to train for.
+epochs = 2  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
 num_samples = 10000  # Number of samples to train on.
 # Path to the data txt file on disk.
@@ -107,6 +107,8 @@ def save_model_to_yml(file_name, md):
     model_yaml = md.to_yaml()
     with open(file_name + "model.yml", "w") as yaml_file:
         yaml_file.write(model_yaml)
+
+    print("Done saving model", file_name)
 
     md.save_weights(file_name + ".model.weight.h5")
 
