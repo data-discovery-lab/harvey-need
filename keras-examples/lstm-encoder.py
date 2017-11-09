@@ -5,7 +5,7 @@ from keras.layers import Input, LSTM, Dense
 import numpy as np
 
 batch_size = 64  # Batch size for training.
-epochs = 2  # Number of epochs to train for.
+epochs = 1  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
 num_samples = 10000  # Number of samples to train on.
 # Path to the data txt file on disk.
@@ -102,19 +102,35 @@ model.fit([encoder_input_data, decoder_input_data], decoder_target_data,
 
 
 # serialize model and weight to YAML
-def save_model_to_yml(file_name, md):
+def save_model(file_name, md):
 
-    model_yaml = md.to_yaml()
-    with open(file_name + "model.yml", "w") as yaml_file:
-        yaml_file.write(model_yaml)
+    output_format = "default"
+    my_file = ""
+    if output_format == "yml":
+        model_yaml = md.to_yaml()
+        my_file = file_name + ".model.yml"
+        with open(my_file, "w") as yaml_file:
+            yaml_file.write(model_yaml)
 
-    print("Done saving model", file_name)
+    elif output_format == "json":
+        model_yaml = md.to_json()
+        my_file = file_name + ".model.json"
+        with open(my_file, "w") as json_file:
+            json_file.write(model_yaml)
 
-    md.save_weights(file_name + ".model.weight.h5")
+    else:
+        my_file = file_name + ".model.h5"
+        md.save(my_file)
 
-    print("Done saving weight", file_name)
+    print("Done saving model", my_file)
 
-save_model_to_yml("s2s.train", model)
+    my_file = file_name + ".model.weight.h5"
+    md.save_weights(my_file)
+
+    print("Done saving weight", my_file)
+
+
+save_model("s2s.train", model)
 
 # Next: inference mode (sampling).
 # Here's the drill:
@@ -140,6 +156,6 @@ decoder_model = Model(
     [decoder_inputs] + decoder_states_inputs,
     [decoder_outputs] + decoder_states)
 
-save_model_to_yml("s2s.encoder", encoder_model)
+save_model("s2s.encoder", encoder_model)
 
-save_model_to_yml("s2s.decoder", decoder_model)
+save_model("s2s.decoder", decoder_model)
