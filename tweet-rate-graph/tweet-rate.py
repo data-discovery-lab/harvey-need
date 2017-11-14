@@ -25,16 +25,18 @@ else:
     
     xxData = []
     yyData = []
-    
+
+    # Complete Tweets
     with open(sys.argv[1], 'r') as dataFile:
         for line in dataFile:
-            line = line.split(" ")
+            line = line.split("|")
             xData.append(line[0])
             yData.append(line[2])
-            
+
+    # Need Tweets
     with open(sys.argv[2], 'r') as dataFile:
         for line in dataFile:
-            line = line.split(" ")
+            line = line.split("|")
             xxData.append(line[0])
             yyData.append(line[2])
             
