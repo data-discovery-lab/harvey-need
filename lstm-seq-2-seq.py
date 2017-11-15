@@ -48,31 +48,42 @@ from keras.layers import Input, LSTM, Dense
 import numpy as np
 
 batch_size = 64  # Batch size for training.
-epochs = 100  # Number of epochs to train for.
+epochs = 1  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
 num_samples = 10000  # Number of samples to train on.
 # Path to the data txt file on disk.
-data_path = 'keras-examples/fra-eng/fra.txt'
 
 # Vectorize the data.
 input_texts = []
 target_texts = []
 input_characters = set()
 target_characters = set()
-lines = open(data_path).read().split('\n')
-for line in lines[: min(num_samples, len(lines) - 1)]:
-    input_text, target_text = line.split('\t')
-    # We use "tab" as the "start sequence" character
-    # for the targets, and "\n" as "end sequence" character.
-    target_text = '\t' + target_text + '\n'
-    input_texts.append(input_text)
-    target_texts.append(target_text)
-    for char in input_text:
-        if char not in input_characters:
-            input_characters.add(char)
-    for char in target_text:
-        if char not in target_characters:
-            target_characters.add(char)
+
+def read_data(path, sequences, target):
+    lines = open(path).read().split('\n')
+    train_lines = lines[: min(num_samples, len(lines) - 1)]
+
+    char_set = set()
+
+    for line in train_lines:
+        text = line
+        # We use "tab" as the "start sequence" character
+        # for the targets, and "\n" as "end sequence" character.
+        if target == True:
+            text = '\t' + text + '\n'
+
+        sequences.append(text)
+
+        for char in text:
+            if char not in char_set:
+                char_set.add(char)
+
+    return char_set
+
+
+input_characters = read_data('keras-examples/fra-eng/input.txt', input_texts, False)
+target_characters = read_data('keras-examples/fra-eng/output.txt', target_texts, True)
+
 
 input_characters = sorted(list(input_characters))
 target_characters = sorted(list(target_characters))
