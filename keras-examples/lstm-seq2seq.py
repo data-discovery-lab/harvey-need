@@ -51,7 +51,7 @@ epochs = 1  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
 num_samples = 10000  # Number of samples to train on.
 # Path to the data txt file on disk.
-data_path = 'fra-eng/new.txt'
+data_path = 'fra-eng/fra.txt'
 
 # Vectorize the data.
 input_texts = []
@@ -66,12 +66,17 @@ for line in lines[: min(num_samples, len(lines) - 1)]:
     target_text = '\t' + target_text + '\n'
     input_texts.append(input_text)
     target_texts.append(target_text)
-    for char in input_text:
-        if char not in input_characters:
-            input_characters.add(char)
-    for char in target_text:
-        if char not in target_characters:
-            target_characters.add(char)
+
+    if input_text not in input_characters:
+        input_characters.add(input_text)
+    if target_text not in target_characters:
+        target_characters.add(target_text)
+    # for char in input_text:
+    #     if char not in input_characters:
+    #         input_characters.add(char)
+    # for char in target_text:
+    #     if char not in target_characters:
+    #         target_characters.add(char)
 
 input_characters = sorted(list(input_characters))
 target_characters = sorted(list(target_characters))
