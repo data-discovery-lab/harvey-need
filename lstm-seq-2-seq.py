@@ -59,9 +59,17 @@ target_texts = []
 input_characters = set()
 target_characters = set()
 
+starting_char = '[start]'
+ending_char = '[stop]'
+# starting_char = '\t'
+# ending_char = '\n'
 
 def enumerate_text(text):
-    return text.split()
+
+    if starting_char == '[start]':
+        return text.split()
+
+    return text
 
 def read_data(path, sequences, target):
     lines = open(path).read().split('\n')
@@ -74,7 +82,11 @@ def read_data(path, sequences, target):
         # We use "tab" as the "start sequence" character
         # for the targets, and "\n" as "end sequence" character.
         if target == True:
-            text = '[stop] ' + text + ' \n'
+            if starting_char == '[start]':
+                text = starting_char + ' ' + text + ' ' + ending_char
+            else:
+                text = starting_char + text + ending_char
+
 
         sequences.append(text)
 
@@ -204,7 +216,7 @@ def decode_sequence(input_seq):
     # Generate empty target sequence of length 1.
     target_seq = np.zeros((1, 1, num_decoder_tokens))
     # Populate the first character of target sequence with the start character.
-    target_seq[0, 0, target_token_index['[stop]']] = 1.
+    target_seq[0, 0, target_token_index[starting_char]] = 1.
 
     # Sampling loop for a batch of sequences
     # (to simplify, here we assume a batch of size 1).
@@ -221,7 +233,7 @@ def decode_sequence(input_seq):
 
         # Exit condition: either hit max length
         # or find stop character.
-        if (sampled_char == '\n' or
+        if (sampled_char == ending_char or
            len(decoded_sentence) > max_decoder_seq_length):
             stop_condition = True
 
