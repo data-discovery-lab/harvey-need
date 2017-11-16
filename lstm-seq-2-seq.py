@@ -50,7 +50,7 @@ import numpy as np
 batch_size = 64  # Batch size for training.
 epochs = 1  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
-num_samples = 10000  # Number of samples to train on.
+num_samples = 1000  # Number of samples to train on.
 # Path to the data txt file on disk.
 
 # Vectorize the data.
@@ -58,6 +58,18 @@ input_texts = []
 target_texts = []
 input_characters = set()
 target_characters = set()
+
+starting_char = '[start]'
+ending_char = '[stop]'
+# starting_char = '\t'
+# ending_char = '\n'
+
+def enumerate_text(text):
+
+    if starting_char == '[start]':
+        return text.split()
+
+    return text
 
 def read_data(path, sequences, target):
     lines = open(path).read().split('\n')
@@ -70,11 +82,17 @@ def read_data(path, sequences, target):
         # We use "tab" as the "start sequence" character
         # for the targets, and "\n" as "end sequence" character.
         if target == True:
-            text = '\t' + text + '\n'
+            if starting_char == '[start]':
+                text = starting_char + ' ' + text + ' ' + ending_char
+            else:
+                text = starting_char + text + ending_char
+
 
         sequences.append(text)
 
-        for char in text:
+        chars = enumerate_text(text)
+        # chars = text
+        for char in chars:
             if char not in char_set:
                 char_set.add(char)
 
@@ -113,10 +131,16 @@ decoder_target_data = np.zeros(
     (len(input_texts), max_decoder_seq_length, num_decoder_tokens),
     dtype='float32')
 
-for i, (input_text, target_text) in enumerate(zip(input_texts, target_texts)):
-    for t, char in enumerate(input_text):
+pairs = enumerate(zip(input_texts, target_texts))
+for i, (input_text, target_text) in pairs:
+
+    enum_input_texts = enumerate_text(input_text)
+    # enum_input_texts = enumerate(input_text.spl)
+    for t, char in enumerate(enum_input_texts):
         encoder_input_data[i, t, input_token_index[char]] = 1.
-    for t, char in enumerate(target_text):
+
+    enum_target_texts = enumerate_text(target_text)
+    for t, char in enumerate(enum_target_texts):
         # decoder_target_data is ahead of decoder_input_data by one timestep
         decoder_input_data[i, t, target_token_index[char]] = 1.
         if t > 0:
@@ -153,7 +177,7 @@ model.fit([encoder_input_data, decoder_input_data], decoder_target_data,
           epochs=epochs,
           validation_split=0.2)
 # Save model
-model.save('s2s.h5')
+# model.save('s2s.h5')
 
 # Next: inference mode (sampling).
 # Here's the drill:
@@ -192,7 +216,7 @@ def decode_sequence(input_seq):
     # Generate empty target sequence of length 1.
     target_seq = np.zeros((1, 1, num_decoder_tokens))
     # Populate the first character of target sequence with the start character.
-    target_seq[0, 0, target_token_index['\t']] = 1.
+    target_seq[0, 0, target_token_index[starting_char]] = 1.
 
     # Sampling loop for a batch of sequences
     # (to simplify, here we assume a batch of size 1).
@@ -209,7 +233,7 @@ def decode_sequence(input_seq):
 
         # Exit condition: either hit max length
         # or find stop character.
-        if (sampled_char == '\n' or
+        if (sampled_char == ending_char or
            len(decoded_sentence) > max_decoder_seq_length):
             stop_condition = True
 
