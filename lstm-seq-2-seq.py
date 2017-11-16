@@ -47,8 +47,8 @@ from keras.models import Model
 from keras.layers import Input, LSTM, Dense
 import numpy as np
 
-batch_size = 64  # Batch size for training.
-epochs = 1  # Number of epochs to train for.
+batch_size = 30  # Batch size for training.
+epochs = 50  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
 num_samples = 1000  # Number of samples to train on.
 # Path to the data txt file on disk.
@@ -78,6 +78,9 @@ def read_data(path, sequences, target):
     char_set = set()
 
     for line in train_lines:
+        if line == '' or len(line) < 1:
+            continue
+
         text = line
         # We use "tab" as the "start sequence" character
         # for the targets, and "\n" as "end sequence" character.
@@ -99,8 +102,8 @@ def read_data(path, sequences, target):
     return char_set
 
 
-input_characters = read_data('keras-examples/fra-eng/input.txt', input_texts, False)
-target_characters = read_data('keras-examples/fra-eng/output.txt', target_texts, True)
+input_characters = read_data('keras-examples/fra-eng/need_input.txt', input_texts, False)
+target_characters = read_data('keras-examples/fra-eng/need_output.txt', target_texts, True)
 
 
 input_characters = sorted(list(input_characters))
@@ -229,6 +232,10 @@ def decode_sequence(input_seq):
         # Sample a token
         sampled_token_index = np.argmax(output_tokens[0, -1, :])
         sampled_char = reverse_target_char_index[sampled_token_index]
+
+        if not decoded_sentence == '':
+            decoded_sentence += ' '
+
         decoded_sentence += sampled_char
 
         # Exit condition: either hit max length
@@ -247,7 +254,7 @@ def decode_sequence(input_seq):
     return decoded_sentence
 
 
-for seq_index in range(100):
+for seq_index in range(20):
     # Take one sequence (part of the training test)
     # for trying out decoding.
     input_seq = encoder_input_data[seq_index: seq_index + 1]
