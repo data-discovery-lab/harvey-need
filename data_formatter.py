@@ -1,6 +1,7 @@
 
-sourceFile = "/home/jstuve/GitProj/harvey-need/input.csv"
-destFile = "/home/jstuve/GitProj/harvey-need/topic-modeling/tweets.txt"
+sourceFile = "/home/jstuve/Documents/harvey_data/08_17.csv"
+destFile = "/home/jstuve/GitProj/harvey-need/topic-modeling/08_17.txt"
+
 
 with open(sourceFile, "r") as source:
 
