@@ -14,7 +14,7 @@ py.sign_in('JStuve', 'mVRUE6CCF94yvNnRxeuu') # Replace the username, and API key
 print(sys.argv)
 
 if(len(sys.argv) != 3):
-    print('Please enter file name:\n $python tweet-rate.py data1.csv data2.csv')
+    print('Please enter file name:\n $python tweet-rate.py CompleteTweetData.csv NeedTweeData.csv')
 
 
 
@@ -46,16 +46,14 @@ else:
         split = line.split('_')
         line = "{}/{}".format(split[0], split[1])   
         labels.append(line)
-            
-    print(labels)
-    
+        
     x = len(labels)
     
     trace1 = go.Scatter(
         x= xData,
         y= yData,
         fill='tozeroy',
-        name="Complete Tweets"
+        name="Harvey Tweets"
     )
     
     trace2 = go.Scatter(
@@ -67,6 +65,8 @@ else:
     
     
     data = [trace1, trace2]
+    
+    print("X_Length: " + str(len(xData)))
     
     layout = dict(
             width = 900,
@@ -88,7 +88,10 @@ else:
                         size = 14,
                         color = "#000"
                 ),
-                ticktext = ['8/20','8/25', '8/30','9/4','9/14','9/19','9/24','9/29'],
+                tickvals= [10,40,70,100,130,160,190,220,250],
+                ticktext= ["Aug 17","Aug 22","Aug 27","Sept 1", "Sept 6", "Sept 11", "Sept 16", "Sept 21", "Sept 26"],
+                tickwidth=2,
+                tickangle=35,
                 dtick=30,
                         
             ),
@@ -96,7 +99,7 @@ else:
                 showgrid = False,
                 zeroline = True,
                 showline=True,
-                title = "Tweets per Second",
+                title = "Tweet Rate (per second)",
                 titlefont = dict(
                         size = 20,
                         color = "#000"
@@ -105,6 +108,7 @@ else:
                         size = 14,
                         color = "#000"
                 ),
+                tickwidth=2,
             ),
         )
     print("Creating Plotly Graph")
