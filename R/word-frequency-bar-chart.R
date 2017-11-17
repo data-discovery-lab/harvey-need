@@ -11,13 +11,11 @@ setwd("/Users/yangkui/Desktop/")
 
 preProcessing = FALSE
 #without pre-processing
-if (preProcessing == FALSE) {
-  tweets_raw = read.csv("/Users/yangkui/Desktop/27_out.csv",sep = "|", stringsAsFactors = FALSE,header = FALSE,na.strings = c("","NA"))
-  tweets=na.omit(tweets_raw)
-  colnames(tweets)<-c("tweet","time")
-  sortedData<-tweets[order(tweets[,2]),]
-  tweets=sortedData
-}
+tweets_raw = read.csv("/Users/yangkui/Desktop/noun/08_28_1.csv",sep = "|", stringsAsFactors = FALSE,header = FALSE,na.strings = c("","NA"))
+tweets=na.omit(tweets_raw)
+colnames(tweets)<-c("tweet","time")
+tweets<-tweets[order(tweets[,2]),]
+
 
 cleanTweet = function(tweets) {
   replace_reg = "https://t.co/[A-Za-z\\d]+|http://[A-Za-z\\d]+|&amp;|&lt;|&gt;|RT|https"
@@ -55,22 +53,22 @@ tweets$tweet = tweets$text
 tweets<-tweets[,1:2]
 ###########################
 
-additionalStopWords=c("en","de","la","lo","null")
-additionalStopWords_df <- data_frame(lexicon="custom", word = additionalStopWords)
+additionalStopWords=c("harvei")
+additionalStopWords_df <- data_frame(word = additionalStopWords,lexicon="custom")
 
 custom_stop_words = stop_words
 custom_stop_words <- bind_rows(custom_stop_words, additionalStopWords_df)
 
 words = tweets %>%
   unnest_tokens(word, tweet) %>%
-  anti_join(custom_stop_words, by = c("word" = "word"))  %>%
+  anti_join(custom_stop_words)  %>%
   mutate(word = wordStem(word))
 
 wordFreq=count(words, word, sort = TRUE) 
 colnames(wordFreq) = c("word", "freq")
 
 wordFreq = wordFreq %>%
-  filter(freq >=3) %>%
+  filter(freq >=50) %>%
   mutate(word = reorder(word, freq))
 
 fillColor = ifelse(preProcessing, "darkred", "cyan4")
