@@ -11,6 +11,7 @@ stopwords <- as.character(stopwords$V1)
 stopwords <- c(stopwords, stopwords("english"))
 
 #Read tweet file
+
 a  <-Corpus(DirSource("/home/jstuve/GitProj/harvey-need/topic-modeling/text/"), readerControl = list(language="lat")) #Directory for text file analytics
 
 #Clean the data
