@@ -48,7 +48,7 @@ from keras.layers import Input, LSTM, Dense
 import numpy as np
 
 batch_size = 30  # Batch size for training.
-epochs = 50  # Number of epochs to train for.
+epochs = 100  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
 num_samples = 1000  # Number of samples to train on.
 # Path to the data txt file on disk.
@@ -59,10 +59,10 @@ target_texts = []
 input_characters = set()
 target_characters = set()
 
-starting_char = '[start]'
-ending_char = '[stop]'
-# starting_char = '\t'
-# ending_char = '\n'
+# starting_char = '[start]'
+# ending_char = '[stop]'
+starting_char = '\t'
+ending_char = '\n'
 
 def enumerate_text(text):
 
@@ -102,8 +102,8 @@ def read_data(path, sequences, target):
     return char_set
 
 
-input_characters = read_data('keras-examples/fra-eng/need_input.txt', input_texts, False)
-target_characters = read_data('keras-examples/fra-eng/need_output.txt', target_texts, True)
+input_characters = read_data('keras-examples/data/weather.txt', input_texts, False)
+target_characters = read_data('keras-examples/data/need.txt', target_texts, True)
 
 
 input_characters = sorted(list(input_characters))
@@ -233,7 +233,7 @@ def decode_sequence(input_seq):
         sampled_token_index = np.argmax(output_tokens[0, -1, :])
         sampled_char = reverse_target_char_index[sampled_token_index]
 
-        if not decoded_sentence == '':
+        if starting_char == '[start]' and not decoded_sentence == '':
             decoded_sentence += ' '
 
         decoded_sentence += sampled_char
@@ -254,7 +254,9 @@ def decode_sequence(input_seq):
     return decoded_sentence
 
 
-for seq_index in range(20):
+# randomly take data from inputs
+test_item_indices = [58, 66, 72, 77]
+for seq_index in test_item_indices:
     # Take one sequence (part of the training test)
     # for trying out decoding.
     input_seq = encoder_input_data[seq_index: seq_index + 1]
