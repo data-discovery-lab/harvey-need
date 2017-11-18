@@ -47,8 +47,8 @@ from keras.models import Model
 from keras.layers import Input, LSTM, Dense
 import numpy as np
 
-batch_size = 30  # Batch size for training.
-epochs = 100  # Number of epochs to train for.
+batch_size = 10  # Batch size for training.
+epochs = 50  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
 num_samples = 1000  # Number of samples to train on.
 # Path to the data txt file on disk.
@@ -255,7 +255,7 @@ def decode_sequence(input_seq):
 
 
 # randomly take data from inputs
-test_item_indices = [58, 66, 72, 77]
+test_item_indices = [1, 5, 13, 24, 35, 42, 50, 58, 66, 72, 77]
 for seq_index in test_item_indices:
     # Take one sequence (part of the training test)
     # for trying out decoding.
