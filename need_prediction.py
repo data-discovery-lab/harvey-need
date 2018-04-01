@@ -25,10 +25,10 @@ seq_length = 100
 dataX = []
 dataY = []
 for i in range(0, n_chars - seq_length, 1):
-	seq_in = raw_text[i:i + seq_length]
-	seq_out = raw_text[i + seq_length]
-	dataX.append([char_to_int[char] for char in seq_in])
-	dataY.append(char_to_int[seq_out])
+    seq_in = raw_text[i:i + seq_length]
+    seq_out = raw_text[i + seq_length]
+    dataX.append([char_to_int[char] for char in seq_in])
+    dataY.append(char_to_int[seq_out])
 n_patterns = len(dataX)
 print("Total Patterns: ", n_patterns)
 # reshape X to be [samples, time steps, features]
@@ -45,7 +45,7 @@ model.add(LSTM(256))
 model.add(Dropout(0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
 # load the network weights
-filename = "data/daily-need/output/need-prediction-weights-improvement-46-0.0831-bigger.hdf5"
+filename = "data/daily-need/output/len100/need-prediction-weights-improvement-46-0.0831-bigger.hdf5"
 model.load_weights(filename)
 model.compile(loss='categorical_crossentropy', optimizer='adam')
 # pick a random seed
@@ -54,14 +54,45 @@ pattern = dataX[start]
 print("Seed:")
 print("\"", ''.join([int_to_char[value] for value in pattern]), "\"")
 # generate characters
-for i in range(1000):
-	x = numpy.reshape(pattern, (1, len(pattern), 1))
-	x = x / float(n_vocab)
-	prediction = model.predict(x, verbose=0)
-	index = numpy.argmax(prediction)
-	result = int_to_char[index]
-	seq_in = [int_to_char[value] for value in pattern]
-	sys.stdout.write(result)
-	pattern.append(index)
-	pattern = pattern[1:len(pattern)]
+
+
+dataX = []
+with open('data/daily-need/weather.txt') as weatherFile:
+    for line in weatherFile:
+        line = line.replace('\n', '')
+        lineLength = len(line)
+        for i in range(0, seq_length-lineLength):
+            line = line + ' '
+        dataX.append([char_to_int[char] for char in line])
+
+for line_input in dataX:
+    print('\n***** predicting for line....',  ''.join([int_to_char[value] for value in line_input]), '\n')
+    pattern = line_input
+
+    for i in range(1000):
+        x = numpy.reshape(pattern, (1, len(pattern), 1))
+        x = x / float(n_vocab)
+        prediction = model.predict(x, verbose=0)
+        index = numpy.argmax(prediction)
+        result = int_to_char[index]
+        sys.stdout.write(result)
+        pattern.append(index)
+        pattern = pattern[1:len(pattern)]
+
+        if result == '\n':
+            break
+
+# for i in range(1000):
+#     x = numpy.reshape(pattern, (1, len(pattern), 1))
+#     x = x / float(n_vocab)
+#     prediction = model.predict(x, verbose=0)
+#     index = numpy.argmax(prediction)
+#     result = int_to_char[index]
+#     # if result == '\n':
+#     #     print("done result e")
+#     seq_in = [int_to_char[value] for value in pattern]
+#     sys.stdout.write(result)
+#     pattern.append(index)
+#     pattern = pattern[1:len(pattern)]
+
 print("\nDone.")
