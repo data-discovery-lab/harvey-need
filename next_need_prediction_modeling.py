@@ -7,7 +7,7 @@ from keras.layers import LSTM
 from keras.callbacks import ModelCheckpoint
 from keras.utils import np_utils
 # load ascii text and covert to lowercase
-filename = "data/daily-need/weather-need.txt"
+filename = "data/daily-need/lstm-weather-need.txt"
 raw_text = open(filename).read()
 raw_text = raw_text.lower()
 # create mapping of unique chars to integers
@@ -19,7 +19,7 @@ n_vocab = len(chars)
 print("Total Characters: ", n_chars)
 print("Total Vocab: ", n_vocab)
 # prepare the dataset of input to output pairs encoded as integers
-seq_length = 100
+seq_length = 48
 dataX = []
 dataY = []
 for i in range(0, n_chars - seq_length, 1):
@@ -44,7 +44,7 @@ model.add(Dropout(0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam')
 # define the checkpoint
-filepath="data/daily-need/output/len100/need-prediction-weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
+filepath="data/daily-need/output/lstm/need-prediction-weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
 # fit the model

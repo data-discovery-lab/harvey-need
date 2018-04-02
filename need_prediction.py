@@ -21,7 +21,7 @@ n_vocab = len(chars)
 print("Total Characters: ", n_chars)
 print("Total Vocab: ", n_vocab)
 # prepare the dataset of input to output pairs encoded as integers
-seq_length = 100
+seq_length = 48
 dataX = []
 dataY = []
 for i in range(0, n_chars - seq_length, 1):
@@ -45,7 +45,7 @@ model.add(LSTM(256))
 model.add(Dropout(0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
 # load the network weights
-filename = "data/daily-need/output/len100/need-prediction-weights-improvement-46-0.0831-bigger.hdf5"
+filename = "data/daily-need/output/lstm/need-prediction-weights-improvement-48-0.0953-bigger.hdf5"
 model.load_weights(filename)
 model.compile(loss='categorical_crossentropy', optimizer='adam')
 # pick a random seed
@@ -61,26 +61,30 @@ with open('data/daily-need/weather.txt') as weatherFile:
     for line in weatherFile:
         line = line.replace('\n', '')
         lineLength = len(line)
-        for i in range(0, seq_length-lineLength):
-            line = line + ' '
-        dataX.append([char_to_int[char] for char in line])
 
-for line_input in dataX:
-    print('\n***** predicting for line....',  ''.join([int_to_char[value] for value in line_input]), '\n')
-    pattern = line_input
+        pattern = [char_to_int[char] for char in line]
+        print('\n***** predicting for line....',  ''.join([int_to_char[value] for value in pattern]), '******\n')
+        # pattern = line_input
 
-    for i in range(1000):
-        x = numpy.reshape(pattern, (1, len(pattern), 1))
-        x = x / float(n_vocab)
-        prediction = model.predict(x, verbose=0)
-        index = numpy.argmax(prediction)
-        result = int_to_char[index]
-        sys.stdout.write(result)
-        pattern.append(index)
-        pattern = pattern[1:len(pattern)]
+        for i in range(1000):
+            # copy from pattern
+            input_pattern = [i for i in pattern]
+            # update if less than seq_length
+            for i in range(0, seq_length - len(pattern)):
+                input_pattern.append(char_to_int[' '])
 
-        if result == '\n':
-            break
+            x = numpy.reshape(input_pattern, (1, seq_length, 1))
+            x = x / float(n_vocab)
+            prediction = model.predict(x, verbose=0)
+            index = numpy.argmax(prediction)
+            result = int_to_char[index]
+            sys.stdout.write(result)
+            pattern.append(index)
+            if len(pattern) > seq_length:
+                pattern = pattern[1:len(pattern)]
+
+            if result == '\n':
+                break
 
 # for i in range(1000):
 #     x = numpy.reshape(pattern, (1, len(pattern), 1))
