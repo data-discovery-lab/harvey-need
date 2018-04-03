@@ -22,7 +22,6 @@ import data as datamodule
 import util
 from benchmark import benchmark
 
-
 # --------------------------------------------------------------------------------
 # Define ngram class
 # --------------------------------------------------------------------------------
@@ -284,9 +283,15 @@ for n in (3,):
         # print()
 
         print('predict from long text input:')
-
-        for i in range(nsentences):
-            seeds = ['2017-08-23', '18', '00', '35', '1005', 'tropical-depression', '-']
-            msg = model.generate_with_seeds(seeds)
-            complete_msg = ' '.join(seeds) + '::' + msg
-            util.uprint(complete_msg)  # weird symbols can crash print
+        with open('data/need/predicted-needs.txt', 'w') as writer:
+            with open('data/need/weather.txt') as weatherFile:
+                for line in weatherFile:
+                    if len(line) < 10:
+                        continue
+                    line = line.replace('\n', '')
+                    seeds = line.split(' ')
+                    for i in range(nsentences):
+                        msg = model.generate_with_seeds(seeds)
+                        complete_msg = ' '.join(seeds) + ' ' + msg
+                        util.uprint(complete_msg)  # weird symbols can crash print
+                        writer.write(complete_msg + '\n')
