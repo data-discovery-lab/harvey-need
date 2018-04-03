@@ -283,7 +283,7 @@ for n in (3,):
         # print()
 
         print('predict from long text input:')
-        with open('data/need/predicted-needs.txt', 'w') as writer:
+        with open('data/need/n-gram-predicted-needs.txt', 'w') as writer:
             with open('data/need/weather.txt') as weatherFile:
                 for line in weatherFile:
                     if len(line) < 10:

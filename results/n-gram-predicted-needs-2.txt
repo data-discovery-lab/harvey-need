@@ -1,0 +1,96 @@
+2017-08-23 15 00 35 1006 tropical-depression - blood boat call charity clothes dog donation emergency food help hospital house pet power rescue shelter shop supplies support text volunteer
+2017-08-23 18 00 35 1005 tropical-depression - boat call charity clothes dog donation food gas help money pet power rescue shelter supplies support text thing trap volunteer
+2017-08-23 21 00 35 1005 tropical-depression - 
+2017-08-24 00 00 35 1003 tropical-depression - food gas help hospital house money pet power safe shelter supplies volunteer
+2017-08-24 03 00 35 1002 tropical-depression - 
+2017-08-24 04 00 40 1002 tropical-storm - boat call dog donation food fund gas help hospital house leave medical pet power rescue safe shelter supplies trap volunteer
+2017-08-24 06 00 45 1001 tropical-storm - boat call donation food fund gas help money power rescue safe share shelter supplies trap volunteer
+2017-08-24 09 00 45 995 tropical-storm - boat clothes dog donation food gas help money pet power rescue safe share shelter supplies trap volunteer
+2017-08-24 12 00 60 986 tropical-storm - boat call dog donation food fund gas help hospital house medical oil pet power safe shelter supplies volunteer
+2017-08-24 15 00 65 982 tropical-storm - 
+2017-08-24 17 00 80 981 hurricane 1 bag boat call dog donation fill food gas help money pet power rescue share shelter supplies trap volunteer
+2017-08-24 18 00 85 979 hurricane 1 
+2017-08-24 21 00 85 976 hurricane 1 boat call charity clothes dog donation food fund gas help hospital house money pet power safe supplies
+2017-08-25 00 00 85 974 hurricane 1 call donation food gas help hospital house money pet power rescue safe shelter supplies support text trap volunteer
+2017-08-25 03 00 85 973 hurricane 1 
+2017-08-25 04 00 85 971 hurricane 1 boat care dog donation food fund gas help hospital house medical oil pet power rescue resource safe shelter supplies trap volunteer
+2017-08-25 05 00 100 967 hurricane 2 
+2017-08-25 06 00 105 967 hurricane 2 boat care dog donation food fund gas help hospital house medical money pet power safe shelter supplies support volunteer
+2017-08-25 07 00 105 967 hurricane 2 boat care dog donation food gas help house money pet power rescue safe shelter supplies trap volunteer
+2017-08-25 08 00 105 967 hurricane 2 boat care dog donation food gas help money pet power rescue shelter supplies support text trap volunteer
+2017-08-25 09 00 105 967 hurricane 2 
+2017-08-25 10 00 105 958 hurricane 2 boat care dog donation emergency food fund gas help hospital power safe shelter supplies support text trap volunteer
+2017-08-25 11 00 110 952 hurricane 2 
+2017-08-25 12 00 110 950 hurricane 2 boat care dog donation food fund gas help money power rescue safe share shelter supplies support text volunteer
+2017-08-25 13 00 110 950 hurricane 2 
+2017-08-25 14 00 110 948 hurricane 2 
+2017-08-25 15 00 110 947 hurricane 2 : : blood boat call charity clothes contact diaper dog donation fill food gas help hospital house medical oil pet power rescue shelter supplies support text thing trap volunteer
+2017-08-25 16 00 110 947 hurricane 2 
+2017-08-25 17 00 110 947 hurricane 2 
+2017-08-25 18 00 110 945 hurricane 2 boat care dog donation emergency food fund gas help hospital house pet power rescue share shelter supplies support text thing volunteer
+2017-08-25 19 00 120 943 hurricane 3 
+2017-08-25 20 00 120 943 hurricane 3 
+2017-08-25 21 00 125 941 hurricane 3 
+2017-08-25 22 00 125 941 hurricane 3 call donation food fund gas help hospital house medical oil pet power rescue safe share shelter text trap volunteer
+2017-08-25 23 00 130 941 hurricane 4 
+2017-08-26 00 00 130 941 hurricane 4 call donation food gas help money pet power rescue share shelter supplies support text volunteer
+2017-08-26 01 00 130 941 hurricane 4 
+2017-08-26 02 00 130 941 hurricane 4 
+2017-08-26 03 00 130 938 hurricane 4 call donation food fund gas help hospital house medical oil pet power rescue safe share shelter support text thing trap volunteer
+2017-08-26 04 00 130 938 hurricane 4 call donation food gas help hospital house pet power rescue resource shelter supplies trap volunteer
+2017-08-26 05 00 130 940 hurricane 4 
+2017-08-26 06 00 125 942 hurricane 3 boat care dog donation food gas help hospital house leave oil pet power rescue share shelter text trap volunteer
+2017-08-26 07 00 115 950 hurricane 3 boat care food gas help hospital power safe supplies
+2017-08-26 08 00 110 954 hurricane 2 boat care dog donation food fund gas help hospital power safe supplies
+2017-08-26 09 00 100 963 hurricane 2 : : call donation food gas help house money pet power safe supplies
+2017-08-26 10 00 90 967 hurricane 1 call donation food fund gas help house money pet power rescue resource safe shelter supplies volunteer
+2017-08-26 11 00 85 972 hurricane 1 boat call charity clothes donation food gas help money pet power rebuild rescue resident safe shelter supplies trap volunteer
+2017-08-26 12 00 80 975 hurricane 1 call donation food fund gas help hospital house medical oil pet power rescue safe share shelter supplies support text trap volunteer
+2017-08-26 13 00 80 978 hurricane 1 : : boat call charity clothes dog donation food gas help hospital house money pet power rescue safe shelter supplies trap volunteer
+2017-08-26 14 00 75 982 hurricane 1 
+2017-08-26 15 00 75 984 hurricane 1 
+2017-08-26 18 00 70 987 tropical-storm - 
+2017-08-26 21 00 65 990 tropical-storm - 
+2017-08-27 03 00 50 994 tropical-storm - bag boat call dog donation emergency food fund gas help money pet power rescue safe shelter supplies support text thing volunteer
+2017-08-27 06 00 45 998 tropical-storm - dog gas help hospital house medical money pet power rebuild rescue resident safe shelter supplies trap volunteer
+2017-08-27 09 00 45 998 tropical-storm - boat call charity clothes contact diaper dog donation fill food gas help hospital house leave medical pet power rebuild rescue resident safe shelter supplies volunteer
+2017-08-27 12 00 45 998 tropical-storm - 
+2017-08-27 15 00 40 1000 tropical-storm - bag boat call dog donation fill food gas help money pet power rebuild rescue resident safe shelter supplies support text thing trap volunteer
+2017-08-27 18 00 40 1000 tropical-storm - 
+2017-08-27 21 00 40 1000 tropical-storm - bag boat call dog donation food fund gas help money pet power rescue shelter supplies support text thing trap volunteer
+2017-08-28 00 00 40 1000 tropical-storm - boat call charity clothes dog donation food fund gas help money personal pet power rescue shelter supplies support text volunteer
+2017-08-28 03 00 40 1000 tropical-storm - bag boat call donation food gas help hospital power safe supplies
+2017-08-28 06 00 40 999 tropical-storm - 
+2017-08-28 09 00 40 998 tropical-storm - : : call donation food fund gas help hospital house pet power rebuild rescue resident safe share shelter supplies trap volunteer
+2017-08-28 12 00 40 997 tropical-storm - boat call fill food gas help hospital house leave medical pet power rescue shelter supplies text trap volunteer
+2017-08-28 15 00 40 997 tropical-storm - : :
+2017-08-28 18 00 40 998 tropical-storm - : : bag boat call diaper dog donation emergency food help hospital house medical oil pet power rescue safe share shelter text trap volunteer
+2017-08-28 21 00 45 997 tropical-storm - boat call dog donation food fund gas help hospital house pet power rescue safe shelter supplies support text trap volunteer
+2017-08-29 00 00 45 997 tropical-storm - bag boat call dog donation food fund gas help money pet power rescue resource safe shelter supplies support text volunteer
+2017-08-29 03 00 45 997 tropical-storm - 
+2017-08-29 06 00 45 997 tropical-storm - 
+2017-08-29 09 00 45 997 tropical-storm - 
+2017-08-29 12 00 45 997 tropical-storm - boat call charity clothes contact diaper dog donation food fund gas help money personal pet power rescue safe shelter supplies support text thing volunteer
+2017-08-29 15 00 45 997 tropical-storm - dog gas help medical money pet power safe supplies
+2017-08-29 18 00 45 997 tropical-storm - boat call charity clothes contact diaper dog donation food fund gas help money pet power safe supplies
+2017-08-29 21 00 50 994 tropical-storm - 
+2017-08-30 00 00 50 994 tropical-storm - dog gas help hospital house medical oil pet power rebuild rescue resident safe share shelter supplies support text thing volunteer
+2017-08-30 03 00 50 994 tropical-storm - bag boat call dog donation fill food gas help hospital house medical oil pet power rebuild rescue resident safe share shelter support text thing trap volunteer
+2017-08-30 06 00 45 995 tropical-storm - boat call charity clothes dog donation food fund gas help hospital house leave medical pet power rebuild rescue resident safe share shelter text trap volunteer
+2017-08-30 09 00 45 990 tropical-storm - boat call dog donation food fund gas help hospital house leave medical pet power rebuild rescue resident safe share shelter support text thing volunteer
+2017-08-30 12 00 45 992 tropical-storm - 
+2017-08-30 15 00 45 993 tropical-storm - 
+2017-08-30 18 00 40 995 tropical-storm - boat call fill food gas help hospital house leave oil pet power rescue resident safe share shelter supplies volunteer
+2017-08-30 21 00 40 998 tropical-storm - boat call dog donation fill food gas help hospital house leave medical pet power rebuild rescue resident safe shelter supplies trap volunteer
+2017-08-31 00 00 35 998 tropical-depression - 
+2017-08-31 03 00 35 998 tropical-depression - boat call donation food fund gas help hospital house money pet power rebuild rescue resident safe share shelter support text thing trap volunteer
+2017-08-31 09 00 30 998 tropical-depression - food gas help money pet power rescue shelter supplies volunteer
+2017-08-31 15 00 15 1002 tropical-depression - : : call donation food fund gas help medical money pet power safe supplies
+2017-08-31 21 00 15 1000 tropical-depression - boat call dog donation food fund gas help hospital house medical oil pet power rescue share shelter text trap volunteer
+2017-09-01 03 00 30 1000 tropical-depression - : :
+2017-09-01 09 00 30 1001 tropical-depression - : :
+2017-09-01 15 00 25 1002 post-tropical-cyclone - boat call charity clothes contact diaper dog donation fill food gas pet power rescue shelter supplies trap volunteer
+2017-09-01 21 00 15 1005 post-tropical-cyclone - call charity clothes contact diaper dog donation food fund gas help money pet power rescue safe share shelter support text volunteer
+2017-09-02 03 00 25 1009 post-tropical-cyclone - : : call donation food fund gas help hospital power safe shelter supplies volunteer
+2017-09-02 09 00 15 1010 post-tropical-cyclone - : : boat care food gas help hospital power safe shelter supplies support text trap volunteer
+2017-09-02 15 00 15 1013 post-tropical-cyclone - charity dog donation food gas help house money personal pet rescue resource shelter supplies volunteer
