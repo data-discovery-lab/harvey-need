@@ -1,10 +1,10 @@
 2017-08-23 18 00 35 1005 tropical-depression - [0,1,0, 1, 0, 0,0 ,1]
 2017-08-23 21 00 35 1005 tropical-depression - [0,1,0, 0, 0, 0,0 ,1]
-2017-08-24 00 00 35 1003 tropical-depression - dog gas help hospital power safe supplies
-2017-08-24 03 00 35 1002 tropical-depression - dog gas help hospital power safe supplies
-2017-08-24 04 00 40 1002 tropical-storm - dog gas help hospital power safe supplies
-2017-08-24 06 00 45 1001 tropical-storm - dog gas help hospital power safe supplies
-2017-08-24 09 00 45 995 tropical-storm - dog gas help hospital power safe supplies
+2017-08-24 00 00 35 1003 tropical-depression - [0,1,0, 0, 0, 0,0 ,1]
+2017-08-24 03 00 35 1002 tropical-depression - [0,1,0, 0, 0, 0,0 ,1]
+2017-08-24 04 00 40 1002 tropical-storm - [0,1,0, 0, 0, 0,0 ,1]
+2017-08-24 06 00 45 1001 tropical-storm - [0,1,0, 0, 0, 0,0 ,1]
+2017-08-24 09 00 45 995 tropical-storm - [0,1,0, 0, 0, 0,0 ,1]
 2017-08-24 12 00 60 986 tropical-storm - boat call fill food gas help hospital house leave oil pet power safe shelter supplies volunteer
 2017-08-24 15 00 65 982 tropical-storm - boat call fill food gas help hospital house leave oil pet power safe shelter supplies volunteer
 2017-08-24 17 00 80 981 hurricane 1 boat call fill food gas help hospital house leave oil pet power safe shelter supplies volunteer
