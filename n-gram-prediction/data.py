@@ -38,6 +38,8 @@ class Data():
         print('Reading texts...') # ~1sec
         text = ''
         for filename in sorted(os.listdir(self.folder)):
+            if not filename.startswith('weather-need'):
+                continue
             filepath = self.folder +'/' + filename
             if os.path.isfile(filepath) and filename[-4:]=='.txt':
                 print(filepath)

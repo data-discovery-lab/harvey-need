@@ -187,6 +187,8 @@ class Ngram():
 
         for i in range(nwords_to_generate):
             next = self.generate_token(inputs)
+            if next is None:
+                continue
             next_word = str(self.data.iword_to_word[next])
 
             if next_word.startswith('2017'):
