@@ -41,7 +41,7 @@ for file in files:
                 my_needs[i] = my_needs[i] | coming_needs[i]
 
     my_data = collections.OrderedDict(sorted(my_data.items()))
-    output = file.replace('.vec', 'half-day.vec')
+    output = file.replace('.vec', '-half-day.vec')
     with open(output, 'w') as writer:
         for time, needs in my_data.items():
             need_string = '['

@@ -5,11 +5,15 @@ from ast import literal_eval
 from sklearn.metrics import jaccard_similarity_score
 import numpy as np
 
-true_file = 'output/weather-need.vec.txt'
+true_file = 'output/weather-need-half-day.vec.txt'
 files = {
-    'output/n-gram-predicted-needs-1.vec.txt': '#FF0000',
-    'output/prediction-lstm-1.vec.txt': '#00FF00',
-    'output/seq-2-seq-needs.vec.txt': '#0000FF'
+    'output/n-gram-predicted-needs-1-half-day.vec.txt': '#FF0000',
+    'output/prediction-lstm-1-half-day.vec.txt': '#00FF00',
+    'output/seq-2-seq-needs-half-day.vec.txt': '#0000FF'
+
+    # 'output/n-gram-predicted-needs-1.vec.txt': '#FF0000',
+    # 'output/prediction-lstm-1.vec.txt': '#00FF00',
+    # 'output/seq-2-seq-needs.vec.txt': '#0000FF'
 }
 
 
@@ -32,10 +36,10 @@ for file, color in files.items():
             compared_vector = literal_eval(vector_string)
 
             # setup true vector for comparison. This is all 1(s) vector
-            test_text = line[0:16]
+            test_text = line[0:15]
             true_line = lines[i]
             if not true_line.startswith(test_text):
-                raise Exception('Invalid line at:', i, 'test_text:', test_text)
+                raise Exception('Invalid line at:', i, 'is:', true_line, ':test_text:', test_text)
 
             vector_string = true_line[true_line.index('['):]
             trueVector = literal_eval(vector_string)
