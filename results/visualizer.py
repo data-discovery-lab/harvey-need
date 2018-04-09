@@ -9,7 +9,7 @@ true_file = 'output/weather-need-half-day.vec.txt'
 files = {
     'output/n-gram-predicted-needs-1-half-day.vec.txt': '#FF0000',
     'output/prediction-lstm-1-half-day.vec.txt': '#00FF00',
-    'output/seq-2-seq-needs-half-day.vec.txt': '#0000FF'
+    'output/testing-seq-2-seq-r01-half-day.vec.txt': '#0000FF'
 
     # 'output/n-gram-predicted-needs-1.vec.txt': '#FF0000',
     # 'output/prediction-lstm-1.vec.txt': '#00FF00',
@@ -43,6 +43,9 @@ for file, color in files.items():
 
             vector_string = true_line[true_line.index('['):]
             trueVector = literal_eval(vector_string)
+            if len(trueVector) != len(compared_vector):
+                for i in range(len(trueVector), len(compared_vector)):
+                    trueVector.append(1)
 
             similarity = jaccard_similarity_score(compared_vector, trueVector)
             similarity_scores.append(similarity)

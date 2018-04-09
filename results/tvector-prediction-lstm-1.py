@@ -45,6 +45,7 @@ for line in data_file:  # parse each line in the input file
         if len(n) < 2:
             continue
         if n not in base_vector:
+            output_vector.append('0')
             continue
         idx = base_vector[n]
         output_vector[idx] = '1'

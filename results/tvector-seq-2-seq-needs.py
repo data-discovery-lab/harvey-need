@@ -13,7 +13,7 @@ for line in vector_file:
         vector_model.append(line)
 
 
-file_name = 'seq-2-seq-needs.txt'
+file_name = 'testing-seq-2-seq.txt'
 file_output = open('output/' + file_name.replace('.txt', '.vec.txt'), 'w') #output vectors
 data_file = open(file_name) #input text data
 
