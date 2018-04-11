@@ -22,13 +22,13 @@ def PlotStuff(dataToPlot, dataName, dataColor):
 
     #Smoothed? Remove and uncomment other lines to return to prior format.
     #The last value is the smoothing factor. Sweet spot for working hoverover uncertain.
-    xnew = np.linspace(0, len(dataToPlot)-1, len(dataToPlot) * 11)
-    smoothedY = spline(np.arange(len(dataToPlot)), dataToPlot, xnew)
-    smoothedX = spline(np.arange(len(dataToPlot)), np.arange(len(dataToPlot)), xnew)
+    #xnew = np.linspace(0, len(dataToPlot)-1, len(dataToPlot) * 11)
+    #smoothedY = spline(np.arange(len(dataToPlot)), dataToPlot, xnew)
+    #smoothedX = spline(np.arange(len(dataToPlot)), np.arange(len(dataToPlot)), xnew)
     
     dataPlot = Scatter(
-        x = smoothedX,#np.arange(len(dataToPlot)),
-        y = smoothedY,#dataToPlot,
+        x = np.arange(len(dataToPlot)),#smoothedX,
+        y = dataToPlot,#smoothedY,
         name = dataName,
         line = dict(
             color = dataColor,
