@@ -3,14 +3,15 @@ import collections
 
 files = [
     # 'output/n-gram-predicted-needs-1.vec.txt',
-    'output/prediction-lstm-1.vec.txt',
+    # 'output/prediction-lstm-1.vec.txt',
     # 'output/seq-2-seq-needs.vec.txt',
     # 'output/weather-need.vec.txt',
-    # 'output/testing-seq-2-seq.vec.txt',
+    # 'output/testing-seq-2-seq-r01.vec.txt',
 
 ]
 
 need_size = 50
+half_day = False
 
 for file in files:
     my_data = dict()
@@ -25,10 +26,11 @@ for file in files:
             time = line[11:13]
             time = int(time)
 
-            if time >= 12:
-                date = date + '-02'
-            else:
-                date = date + '-01'
+            if half_day:
+                if time >= 12:
+                    date = date + '-02'
+                else:
+                    date = date + '-01'
 
             if date not in my_data:
                 my_data[date] = []
@@ -47,7 +49,12 @@ for file in files:
                 my_needs[i] = my_needs[i] | coming_needs[i]
 
     my_data = collections.OrderedDict(sorted(my_data.items()))
-    output = file.replace('.vec', '-half-day.vec')
+
+    if half_day:
+        output = file.replace('.vec', '-half-day.vec')
+    else:
+        output = file.replace('.vec', '-full-day.vec')
+
     with open(output, 'w') as writer:
         for time, needs in my_data.items():
             need_string = '['

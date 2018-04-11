@@ -5,11 +5,11 @@ from ast import literal_eval
 from sklearn.metrics import jaccard_similarity_score
 import numpy as np
 
-true_file = 'output/weather-need-half-day.vec.txt'
+true_file = 'output/weather-need-full-day.vec.txt'
 files = {
-    'output/n-gram-predicted-needs-1-half-day.vec.txt': '#FF0000',
-    'output/prediction-lstm-1-half-day.vec.txt': '#00FF00',
-    'output/testing-seq-2-seq-r01-half-day.vec.txt': '#0000FF'
+    'output/n-gram-predicted-needs-1-full-day.vec.txt': '#FF0000',
+    'output/prediction-lstm-1-full-day.vec.txt': '#00FF00',
+    'output/testing-seq-2-seq-r01-full-day.vec.txt': '#0000FF'
 
     # 'output/n-gram-predicted-needs-1.vec.txt': '#FF0000',
     # 'output/prediction-lstm-1.vec.txt': '#00FF00',
