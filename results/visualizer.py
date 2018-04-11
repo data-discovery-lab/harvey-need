@@ -5,6 +5,8 @@ from ast import literal_eval
 from sklearn.metrics import jaccard_similarity_score
 import numpy as np
 
+from scipy.interpolate import spline
+
 true_file = 'output/weather-need-full-day.vec.txt'
 files = {
     'output/n-gram-predicted-needs-1-full-day.vec.txt': '#FF0000',
@@ -51,8 +53,16 @@ for file, color in files.items():
             similarity_scores.append(similarity)
 
         print('average:', file, np.average(similarity_scores))
-        plt.plot(similarity_scores, color=color)
+        #Nick: Adjustments here ------------------------------------
+        #Create smoothing effect.
+        xnew = np.linspace(0, len(similarity_scores)-1, 300)
+        smooth = spline(np.arange(len(similarity_scores)), similarity_scores, xnew)
+        #Plot the smoothed line...
+        plt.plot(xnew, smooth, color=color)
+        #Plot the original, transparently.
+        plt.plot(similarity_scores, color=color + "22")
 
 plt.title("Accuracy Visualization")
+#plt.yticks(np.arange(0, 1.1, step=0.1))
 plt.show()
 
